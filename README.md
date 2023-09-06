@@ -11,11 +11,4 @@ This web application allows users to manage their personal library by adding, re
 - Cloud-based storage of library data using Firebase Firestore.
 - Responsive design for both desktop and mobile devices.
 
-## Features
 
-- Add new books with titles, authors, page counts, and reading status.
-- Remove books from the library.
-- Toggle the reading status of books (read/not read).
-- User authentication with Google sign-in.
-- Cloud-based storage of library data using Firebase Firestore.
-- Responsive design for both desktop and mobile devices.
