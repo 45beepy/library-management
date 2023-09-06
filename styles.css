@@ -32,3 +32,25 @@ body {
     margin-bottom: 100px;
   }
   
+button,
+input {
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type='text'],
+input[type='number'] {
+  cursor: text;
+}
+
+.container{
+  max-width: var(--container-width);
+}
+.btn{
+  padding: var(--spacing-sm)
+}
