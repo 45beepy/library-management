@@ -50,7 +50,24 @@ input[type='number'] {
 
 .container{
   max-width: var(--container-width);
+  padding: var(--spacing-lg);
+  margin: 0 auto;
 }
 .btn{
-  padding: var(--spacing-sm)
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  transition: filter 0.15s ease-in-out;
+}
+
+.btn:hover {
+  filter: brightness(90%);
+}
+
+.btn-add {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.btn-light-green {
+  background-color: var(--light-green);
 }
