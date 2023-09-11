@@ -72,3 +72,60 @@ input[type='number'] {
   background-color: var(--light-green);
 }
 
+/* HEADER */
+
+.header{
+  background-color: var(--white);
+  box-shadow: var(--light-red);
+}
+
+
+.header .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.logged-in,
+.logged-out {
+  display: none;
+}
+
+.logged-in.active,
+.logged-out.active {
+  display: flex;
+  gap: 20px;
+}
+
+/* MAIN */
+
+.main{
+  margin-top: var(--spacing-lg);
+  text-align: center;
+}
+
+.books-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 20px;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  line-height: 1.2;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
