@@ -79,10 +79,25 @@
         </div>
         <div class="modal" id="accountModal"></div>
         <div class="overlay" id="overlay"></div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+        <script type="module">
+            
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
+            
+            const firebaseConfig = {
+              apiKey: "AIzaSyBNN6EDPsbHc0YfJUgPLw1e4zBg7i4UVoo",
+              authDomain: "librarywebapp-4303a.firebaseapp.com",
+              projectId: "librarywebapp-4303a",
+              storageBucket: "librarywebapp-4303a.appspot.com",
+              messagingSenderId: "533046777860",
+              appId: "1:533046777860:web:c63ea760c4a41ec8373d51",
+              measurementId: "G-57W45Y2604"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+          </script>
 
 
             </button>
