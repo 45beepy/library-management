@@ -36,4 +36,35 @@ class Book {
     }
   }
 
-  
+  const accountBtn = document.getElementById('accountBtn')
+const accountModal = document.getElementById('accountModal')
+const addBookBtn = document.getElementById('addBookBtn')
+const addBookModal = document.getElementById('addBookModal')
+const errorMsg = document.getElementById('errorMsg')
+const overlay = document.getElementById('overlay')
+const addBookForm = document.getElementById('addBookForm')
+const booksGrid = document.getElementById('booksGrid')
+const loggedIn = document.getElementById('loggedIn')
+const loggedOut = document.getElementById('loggedOut')
+const loadingRing = document.getElementById('loadingRing')
+
+const setupNavbar = (user) => {
+  if (user) {
+    loggedIn.classList.add('active')
+    loggedOut.classList.remove('active')
+  } else {
+    loggedIn.classList.remove('active')
+    loggedOut.classList.add('active')
+  }
+  loadingRing.classList.remove('active')
+}
+
+const setupAccountModal = (user) => {
+  if (user) {
+    accountModal.innerHTML = `
+      <p>Logged in as</p>
+      <p><strong>${user.email.split('@')[0]}</strong></p>`
+  } else {
+    accountModal.innerHTML = ''
+  }
+}
