@@ -36,7 +36,7 @@ class Book {
     }
   }
 
-  const accountBtn = document.getElementById('accountBtn')
+const accountBtn = document.getElementById('accountBtn')
 const accountModal = document.getElementById('accountModal')
 const addBookBtn = document.getElementById('addBookBtn')
 const addBookModal = document.getElementById('addBookModal')
@@ -67,4 +67,47 @@ const setupAccountModal = (user) => {
   } else {
     accountModal.innerHTML = ''
   }
+}
+
+const openAddBookModal = () => {
+  addBookForm.reset()
+  addBookModal.classList.add('active')
+  overlay.classList.add('active')
+}
+
+const closeAddBookModal = () => {
+  addBookModal.classList.remove('active')
+  overlay.classList.remove('active')
+  errorMsg.classList.remove('active')
+  errorMsg.textContent = ''
+}
+
+const openAccountModal = () => {
+  accountModal.classList.add('active')
+  overlay.classList.add('active')
+}
+
+const closeAccountModal = () => {
+  accountModal.classList.remove('active')
+  overlay.classList.remove('active')
+}
+
+const closeAllModals = () => {
+  closeAddBookModal()
+  closeAccountModal()
+}
+
+const handleKeyboardInput = (e) => {
+  if (e.key === 'Escape') closeAllModals()
+}
+
+const updateBooksGrid = () => {
+  resetBooksGrid()
+  for (let book of library.books) {
+    createBookCard(book)
+  }
+}
+
+const resetBooksGrid = () => {
+  booksGrid.innerHTML = ''
 }
