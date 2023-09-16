@@ -223,3 +223,50 @@ input[type='number'] {
 .overlay.active {
   display: block;
 }
+
+.lds-dual-ring {
+  display: none;
+  width: 38px;
+  height: 38px;
+}
+
+.lds-dual-ring:after {
+  content: ' ';
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 3px solid var(--black);
+  border-color: var(--black) transparent var(--black) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+.lds-dual-ring.active {
+  display: block;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 400px) {
+  .header .container {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-sm);
+  }
+
+  .main {
+    margin-top: 0;
+  }
+
+  :root {
+    --spacing-xl: 20px;
+  }
+}
