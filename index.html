@@ -1,102 +1,76 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width-device-width, initial-scale=1.0">
-        <title>Library</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="preconnect" href="">
-        <link rel="preconnect" href="">
-        <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet"
-        />
-        <link rel="shortcut icon" href="favicon.png" />
-        <script
-        src="https://kit.fontawesome.com/4c536a6bd5.js"
-        crossorigin="anonymous"
-        ></script>
-        <script src="script.js" defer></script>
-    </head>
-    <body>
-        <header class="header">
-            <div class="container">
-                <h1>Library</h1>
-                <nav>
-                    <div class="lds-dual-ring active" id="loadingRing"></div>
-                    <div class="logged-out" id="loggedOut">
-                        <button class="btn" id="logInBtn">Log In</button>
-                    </div>              
-                    <div class="logged-in" id="loggedIn">
-                        <button class="btn" id="accountBtn">Account</button>
-                        <button class="btn" id="logOutBtn">Log Out</button>
-                    </div>
-                </nav>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="renderTable()">
+
+    <div class="titleCont">
+            <h1>Library</h1>
+            <button id="bookButton"><span>New Book</span></button>
+    </div>
+
+    <div class="bottomCont">
+        <div class="tableCont">
+            <div class="tableContainer">
+            <table id="tableMain">
+                <tr>
+                    <th class="tableHeads">Title</th>
+                    <th class="tableHeads">Author</th>
+                    <th class="tableHeads">Length</th>
+                    <th class="tableHeads">Rating</th>
+                    <th class="tableHeads">Read</th>
+                    <th class="tableHeads"> </th>
+                </tr>
+            </table>
             </div>
-        </header>
-        <main class="main-container">
-            <button class="btn btn-add" id="addBookBtn">+ Add Book</button>
-            <div class="books-grid" id="bookGrid"></div>
-        </main>
-        <footer class="footer">
-            <p>
-                Copyright ©
-                <script>
-                    document.write(new Date().getFullYear())
-                </script>
-                Pravin Panneerselvam
-            </p>
-            <a href="https://github.com/45beepy" target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
-        </footer>
-        <div class="modal" id="addBookModal">
-            <form class="ass-book-form" id="addBookForm">
-                <h3>
-                    Add New Book
-                </h3>
-                <input
-                class="input"
-                type="text"
-                id="title"
-                placeholder="Title"
-                required
-                maxlength="100">
-                <p class="error-msg" id="errorMsg"></p>
-                <input
-                class="input"
-                type="text"
-                id="author"
-                placeholder="Pages"
-                required
-                max="10000">
-                <div class="id-read">
-                    <label for="is-read">Have you read it?</label>
-                    <input class="checkbox" type="checkbox" id="idRead">
-                </div>
-                <button class="btn btn-light-green" type="submit">Submit</button>
-            </form>
         </div>
-        <div class="modal" id="accountModal"></div>
-        <div class="overlay" id="overlay"></div>
-        <script type="module">
-            
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-            import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
-            
-            const firebaseConfig = {
-              apiKey: "AIzaSyBNN6EDPsbHc0YfJUgPLw1e4zBg7i4UVoo",
-              authDomain: "librarywebapp-4303a.firebaseapp.com",
-              projectId: "librarywebapp-4303a",
-              storageBucket: "librarywebapp-4303a.appspot.com",
-              messagingSenderId: "533046777860",
-              appId: "1:533046777860:web:c63ea760c4a41ec8373d51",
-              measurementId: "G-57W45Y2604"
-            };
-            const app = initializeApp(firebaseConfig);
-            const analytics = getAnalytics(app);
-          </script>
-            </button>
-        </main>
-    </body>
+
+        <div class="formCont">
+            <div id="form" class="formContainer hidden">
+                <h2 class="formTitle">New Book Form</h2>
+
+                <div class="inputCont">
+                    <form id="formMain" onsubmit="addBookToLibrary()">
+                        <label class="input-titles" for="bookTitle">Book Name</label>
+                        <input type="text" id="bookTitle" name="bookTitle" title="Type name of book" placeholder="Ender's Game">
+
+                        <label class="input-titles" for="author">Author</label>
+                        <input type="text" id="author" name="author" title="Type author name" placeholder="Michaels, John">
+
+                        <label class="input-titles" for="bookLength">Book Length</label>
+                        <input type="number" id="bookLength" name="bookLength" title="Type books page number" placeholder="572">
+
+                        <label class="input-titles" for="rating">Rating/5</label>
+                        <select name="rating" id="rating" form="ratingNumber">
+                            <option value="one">1</option>
+                            <option value="two">2</option>
+                            <option value="three">3</option>
+                            <option value="four">4</option>
+                            <option value="five">5</option>
+                        </select>
+                        <fieldset class="fieldSet">
+                        <legend>Have you read this book?</legend>
+                        <label class="radioCont" for="yes">Yes</label>
+                        <input type="radio" id="yes" name="read" value="Read" required>
+                        <label class="radioCont" for="no">No</label>
+                        <input type="radio" id="no" name="read" value="Unread" checked required></br>
+                        </fieldset>
+
+                        <button type="button" id="submitButton" onclick="addBookToLibrary()"><span>Submit</span></button>
+                    </form>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>  
+
+
+
+    <script src="index.js"></script>
+</body>
 </html>
